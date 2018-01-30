@@ -37,7 +37,10 @@ class HeroStats extends Component {
         ))
         return (
             <div>
-                {Stats}
+                <Sidebar />
+                <div className="container">
+                    {Stats}
+                </div>
             </div>
         )
     }

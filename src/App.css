@@ -1,0 +1,46 @@
+
+.sidebar {
+  display: block;
+  background-color: #1D1E22;
+  width: 10%;
+  padding-top: 40px;
+  padding-bottom: 400px;
+  color: white;
+  position: fixed;
+}
+
+
+.dota2-logo {
+  width: 60%;
+  padding-bottom: 80px;
+}
+
+.sidebar li {
+  list-style: none;
+}
+
+.world-logo {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.team-logo h1{
+  float: left;
+}
+
+
+
+
+
+
+
+/* .App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+} */
+
+
+/* @keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */

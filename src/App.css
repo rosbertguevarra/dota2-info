@@ -1,6 +1,23 @@
+.landing {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../src/wallpaper.jpg);
+  padding-bottom: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  
+}
+
+.text {
+  padding: 100px 0px 100px 300px;
+}
+
+.text h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
 .sidebar {
-  display: block;
+  display: inline-block;
   background-color: #1D1E22;
   width: 10%;
   padding-top: 40px;
@@ -27,7 +44,6 @@
 .team-logo h1{
   float: left;
 }
-
 
 
 

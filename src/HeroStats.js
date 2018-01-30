@@ -3,6 +3,14 @@ import Sidebar from "./Sidebar";
 import Heroes from "./Heroes"
 import "./App.css"
 import axios from "axios";
+import Banner from "./Banner"
+
+
+const alignGrid = {
+    display: "flex",
+    flexWrap: "wrap"
+}
+
 
 const URL = "https://api.opendota.com/api/heroStats";
 
@@ -35,14 +43,14 @@ class HeroStats extends Component {
 
             />
         ))
-        return (
+        return(
             <div>
                 <Sidebar />
-                <div className="container">
-                    {Stats}
-                </div>
+                <Banner />
+            <div style = {alignGrid}>{Stats}</div>
             </div>
-        )
+        ) 
+           
     }
 }
 

@@ -15,12 +15,12 @@ const Sidebar = () => (
             <img src={dota2}  className="dota2-logo" alt="logo" />
           </li>
         </Link>
-         <Link to="/teams">
+         <Link to="/heroes">
           <li>
             <img src={team} className="teams-logo" alt="logo" />
           </li>
         </Link>
-        <Link to="/rankings">
+        <Link to="/live-games">
           <li>
             <img src={world} className="world-logo" alt="logo" />
           </li>

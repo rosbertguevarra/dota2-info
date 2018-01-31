@@ -12,12 +12,20 @@ const alignGrid = {
 }
 
 
+
+
+
 const URL = "https://api.opendota.com/api/heroStats";
 
 class HeroStats extends Component {
     state = {
-        data: []
+        data: [],
+        searchTerm: ""
     }
+    handleSearchTerm = (event) => {
+        this.setState({ searchTerm: event.target.value })
+    }
+
 
     componentDidMount() {
         axios.get(URL)
@@ -28,8 +36,11 @@ class HeroStats extends Component {
             });
     }
 
+
     render() {
-        const Stats = this.state.data.map(stat => (
+        const Filter = this.state.data.filter(stat =>`${stat.localized_name}`.toUpperCase().
+        indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+        .map(stat => 
             <Heroes
                 key={stat.id}
                 id={stat.id}
@@ -42,15 +53,23 @@ class HeroStats extends Component {
                 pro_ban={stat.pro_ban}
 
             />
-        ))
-        return(
+        )
+        return (
             <div>
                 <Sidebar />
                 <Banner />
-            <div style = {alignGrid}>{Stats}</div>
+                <div className="search-input">
+                    Search:  <input
+                        onChange={this.handleSearchTerm}
+                        value={this.state.searchTerm}
+                        type="text"
+                        placeholder="Search hero name"
+                    />
+                </div>
+                <div style={alignGrid}>{Filter}</div>
             </div>
-        ) 
-           
+        )
+
     }
 }
 

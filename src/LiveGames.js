@@ -4,6 +4,10 @@ import "./App.css"
 import axios from "axios";
 import Games from "./Games";
 
+const alignGrid = {
+    display: "flex",
+    flexWrap: "wrap"
+}
 
 const URL = "https://api.opendota.com/api/live";
 
@@ -44,7 +48,8 @@ class LiveGames extends Component {
         ))
         return (
             <div>
-                {Live}
+                <Sidebar />
+            <div style = {alignGrid}>{Live}</div>
             </div>
         )
     }

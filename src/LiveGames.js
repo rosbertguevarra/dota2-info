@@ -21,13 +21,15 @@ const styleInput ={
 const URL = "https://api.opendota.com/api/live";
 
 
-axios.get(URL)
-    .then(function (response) {
-        console.log(response);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+
+
+// axios.get(URL)
+//     .then(function (response) {
+//         console.log(response);
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     });
 
 class LiveGames extends Component {
     state = {
@@ -48,10 +50,8 @@ class LiveGames extends Component {
             });
     }
     render() {
-        const mmr = 5400;
-
-        const Filter = this.state.data.filter(stat =>`${stat.average_mmr}`.toUpperCase().
-        indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+        const Filter = this.state.data.filter(stat =>`${stat.average_mmr}`.toUpperCase()
+        .indexOf(this.state.searchTerm.toUpperCase()) >= 0)
         .map(live => 
             <Games
 

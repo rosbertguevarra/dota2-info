@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Card, CardImg, CardText, CardBody,
+    Card, CardImg, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 import Minimap from "./300px-Minimap_7.07.png"

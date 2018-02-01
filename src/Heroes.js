@@ -3,7 +3,7 @@ import {
     Card, CardImg, CardBody,
     CardTitle, CardSubtitle,
 } from 'reactstrap';
-import Banner from "./Banner"
+
 
 
 const adjustWidth = {

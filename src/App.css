@@ -45,6 +45,11 @@
   float: left;
 }
 
+.player-logo {
+  padding-top: 10px;
+
+}
+
 .search-input {
   margin: 100px 0px 0px 200px;
   
@@ -53,6 +58,7 @@
   padding: 10px 200px 10px 10px;
 
 }
+
 
 
 

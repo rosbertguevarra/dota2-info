@@ -5,14 +5,10 @@ import "./App.css"
 import axios from "axios";
 import Banner from "./Banner"
 
-
 const alignGrid = {
     display: "flex",
     flexWrap: "wrap"
 }
-
-
-
 
 
 const URL = "https://api.opendota.com/api/heroStats";
@@ -36,10 +32,9 @@ class HeroStats extends Component {
             });
     }
 
-
     render() {
-        const Filter = this.state.data.filter(stat =>`${stat.localized_name}`.toUpperCase().
-        indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+        const Filter = this.state.data.filter(stat =>`${stat.localized_name}`.toUpperCase()
+        .indexOf(this.state.searchTerm.toUpperCase()) >= 0)
         .map(stat => 
             <Heroes
                 key={stat.id}

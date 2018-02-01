@@ -2,6 +2,7 @@ import React from "react";
 import dota2 from "./Dota2_logo.png"
 import world from "./world.svg";
 import team from "./team.svg";
+import playerlogo from "./playerlogo.svg";
 import { Link } from "react-router-dom";
 import "./App.css"
 
@@ -23,6 +24,11 @@ const Sidebar = () => (
         <Link to="/live-games">
           <li>
             <img src={world} className="world-logo" alt="logo" />
+          </li>
+        </Link>
+        <Link to="/players">
+          <li>
+            <img src={playerlogo} className="player-logo" alt="logo" />
           </li>
         </Link>
       </ul>

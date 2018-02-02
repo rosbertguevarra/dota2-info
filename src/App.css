@@ -7,6 +7,24 @@
   
 }
 
+.banner-player {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../src/keyArena.jpg);
+  padding-bottom: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+
+.banner-booths {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../src/booths.jpg);
+  padding-bottom: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  
+}
+
 .text {
   padding: 100px 0px 100px 300px;
 }

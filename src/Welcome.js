@@ -1,11 +1,19 @@
 import React from 'react';
 import { Jumbotron } from 'reactstrap';
 import Sidebar from "./Sidebar"
+import axios from "axios";
+
+axios.get("https://api.opendota.com/api/metadata")
+  .then((Response)=>{
+    console.log(Response)
+  })
+
 
 const Style = {
     width: "70%",
     marginLeft: "200px"
 }
+
 
 
 const Welcome = () => {

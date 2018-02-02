@@ -3,6 +3,8 @@ import Sidebar from "./Sidebar";
 import "./App.css"
 import axios from "axios";
 import Games from "./Games";
+import Spinner from "react-spinkit"
+import BannerBooths from "./BannerBooths";
 
 const alignGrid = {
     display: "flex",
@@ -14,14 +16,19 @@ const alignSearch = {
     padding: "50px"
 }
 
-const styleInput ={
+const styleInput = {
     padding: "10px 200px 10px 10px"
 }
 
+const centerSpinner = {
+    margin: "100px auto",
+    color:"#9E0B0F",
+    fontSize: "20px"
+
+}
+
+
 const URL = "https://api.opendota.com/api/live";
-
-
-
 
 // axios.get(URL)
 //     .then(function (response) {
@@ -34,54 +41,65 @@ const URL = "https://api.opendota.com/api/live";
 class LiveGames extends Component {
     state = {
         data: [],
-        searchTerm: ""
+        searchTerm: "",
+        isLoaded: false
+
     }
 
     handleSearchTerm = (event) => {
-        this.setState({searchTerm: event.target.value});
+        this.setState({ searchTerm: event.target.value });
     }
 
     componentDidMount() {
         axios.get(URL)
             .then(res => {
                 this.setState({
-                    data: res.data
+                    data: res.data,
+                    isLoaded: true
+
                 });
             });
     }
     render() {
-        const Filter = this.state.data.filter(stat =>`${stat.average_mmr}`.toUpperCase()
-        .indexOf(this.state.searchTerm.toUpperCase()) >= 0)
-        .map(live => 
-            <Games
-
-                league_id={live.league_id}
-                activate_time={live.activate_time}
-                average_mmr={live.average_mmr}
-                radiant_score={live.radiant_score}
-                dire_score={live.dire_score}
-                spectators={live.spectators}
-            />
-
-        )
-        return (
-            <div>
-                <Sidebar />
-                <div style={alignSearch}>
-                    Search:  <input style={styleInput}
-                        onChange={this.handleSearchTerm}
-                        value={this.state.searchTerm}
-                        type="text"
-                        placeholder="Search mmr"
-                    />
+        const { isLoaded } = this.state;
+        if (!isLoaded) {
+            return (
+                <div>
+                    <Sidebar />
+                    <BannerBooths />
+                    <Spinner name="folding-cube" style={centerSpinner} />
                 </div>
-                <div style={alignGrid}>{Filter}</div>
-            </div>
-        )
+            )
+        }
+
+        else {
+            const Filter = this.state.data.filter(stat => `${stat.average_mmr}`.toUpperCase()
+                .indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+                .map(live =>
+                    <Games
+                        {...live}
+                    />
+
+                )
+            return (
+                <div>
+                    <Sidebar />
+                    <BannerBooths />
+                    <div style={alignSearch}>
+                        Search:  <input style={styleInput}
+                            onChange={this.handleSearchTerm}
+                            value={this.state.searchTerm}
+                            type="text"
+                            placeholder="Search mmr"
+                        />
+                    </div>
+                    <div style={alignGrid}>{Filter}</div>
+                </div>
+            )
+        }
     }
+
 }
-
-
 
 
 
